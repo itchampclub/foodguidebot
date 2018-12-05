@@ -1,22 +1,15 @@
 <?php
-/**
- * Copyright 2016 LINE Corporation
- *
- * LINE Corporation licenses this file to you under the Apache License,
- * version 2.0 (the "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- *   https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations
- * under the License.
- */
-require_once('line-bot-sdk-tiny/LINEBotTiny.php');
-$channelAccessToken = '<your channel access token>';
-$channelSecret = '<your channel secret>';
+
+
+
+
+
+
+
+    
+require_once('LINEBotTiny.php');
+$channelAccessToken = 'WsEg0h0hvWL6AH/5vRTp/VoKgHexRMQ+FOgbI9xrJ19q07jk59Z4X9p6laKD7BR6s8F8E3rZ0pvht4n4NOAtNkA726d4quuAYJW/P0rqABDermZI5505WTp5ix0BjLn6WVb67TpH/sIl6Bwv7m+yagdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '88556d8dd777dea8d4508b361332a939';
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
