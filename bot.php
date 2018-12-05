@@ -3,12 +3,13 @@ require_once('./LINEBotTiny.php');
 $channelAccessToken = 'WsEg0h0hvWL6AH/5vRTp/VoKgHexRMQ+FOgbI9xrJ19q07jk59Z4X9p6laKD7BR6s8F8E3rZ0pvht4n4NOAtNkA726d4quuAYJW/P0rqABDermZI5505WTp5ix0BjLn6WVb67TpH/sIl6Bwv7m+yagdB04t89/1O/w1cDnyilFU=';
 $channelSecret = '88556d8dd777dea8d4508b361332a939';
 date_default_timezone_set('Asia/Jakarta');
-$client 		= new LINEBotTiny($channelAccessToken, $channelSecret);
-
+$client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
             $message = $event['message'];
+            
+            
             $json = file_get_contents('https://spreadsheets.google.com/feeds/list/1tQCaj3LUVwH0tBuPrfBY2dOJuF-qzpYEdOqGdNvJRLc/od6/public/values?alt=json');
             $data = json_decode($json, true);
             $result = array();
@@ -32,43 +33,39 @@ foreach ($client->parseEvents() as $event) {
                     }
                 }
             }
+            
+
             switch ($message['type']) {
                 case 'text':
-                    $client->replyMessage(array(
+                    $client->replyMessage([
                         'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
+                        'messages' => [
+                            [
                                 'type' => 'text',
-                                'text' => $message['text'].'77777777777777777777',
-                            ),
-                            array(
+                                'text' => $message['text']
+                            ],
+                            [
                                 'type' => 'template',
                                 'altText' => '66666666666666',
-                                'template' => array(
+                                'template' => [
                                     'type' => 'carousel',
                                     'columns' => $result,
-                                ),
-                            ),
-                            array(
-                                'type' => 'text',
-                                'text' => '5555555555555',
-                            ),
-                            array(
-                                'type' => 'sticker',
-                                'packageId' => '1',
-                                'stickerId' => '2',
-                            ),
-                        ),
-                    ));
+                                    ]
+                            ]
+                            ]
+                    ]);
                     break;
                 default:
-                    error_log("Unsupporeted message type: " . $message['type']);
+                    error_log('Unsupported message type: ' . $message['type']);
                     break;
             }
             break;
         default:
-            error_log("Unsupporeted event type: " . $event['type']);
+            error_log('Unsupported event type: ' . $event['type']);
             break;
     }
 };
-?>
+            
+            
+            
+           
