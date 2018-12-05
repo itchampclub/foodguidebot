@@ -23,7 +23,7 @@ foreach ($client->parseEvents() as $event) {
                             'actions' => array(
                                 array(
                                     'type' => 'uri',
-                                    'label' => '查看詳情',
+                                    'label' => '8888888888888888888',
                                     'uri' => $item['gsx$url']['$t'],
                                     ),
                                 ),
@@ -39,11 +39,11 @@ foreach ($client->parseEvents() as $event) {
                         'messages' => array(
                             array(
                                 'type' => 'text',
-                                'text' => $message['text'].'讓我想想喔…',
+                                'text' => $message['text'].'77777777777777777777',
                             ),
                             array(
                                 'type' => 'template',
-                                'altText' => '為您推薦下列美食：',
+                                'altText' => '66666666666666',
                                 'template' => array(
                                     'type' => 'carousel',
                                     'columns' => $result,
@@ -51,7 +51,7 @@ foreach ($client->parseEvents() as $event) {
                             ),
                             array(
                                 'type' => 'text',
-                                'text' => '這些都超好吃，真心不騙！',
+                                'text' => '5555555555555',
                             ),
                             array(
                                 'type' => 'sticker',
